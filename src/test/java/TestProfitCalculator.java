@@ -17,7 +17,8 @@ import static org.junit.Assert.fail;
 
 public class TestProfitCalculator{
     private ProfitCalculator _calculator;
-    private int[] _tenThousandNumberSet;
+
+    private int[] _tenThousandNumberSet;//numbers 1 to 9999 in order
     /*
      * A new calculator for every unit tests
      */
@@ -25,10 +26,9 @@ public class TestProfitCalculator{
     public void initializeCaclulator(){
         _calculator = new ProfitCalculator();
         int[] arr = new int[10000];
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = i;
+        for (int i = 1; i < arr.length+1; i++) {
+            arr[i-1] = i;
         }
-//        Collections.shuffle(Arrays.asList(arr));
         _tenThousandNumberSet = arr;
     }
 

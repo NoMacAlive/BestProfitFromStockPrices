@@ -17,7 +17,7 @@ public class TestProfitCalculator{
      * A new calculator for every unit tests
      */
     @Before
-    private void initializeCaclulator(){
+    public void initializeCaclulator(){
         calculator = new ProfitCalculator();
     }
 

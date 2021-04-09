@@ -12,13 +12,13 @@ import static org.junit.Assert.fail;
  */
 
 public class TestProfitCalculator{
-    private ProfitCalculator calculator;
+    private ProfitCalculator _calculator;
     /*
      * A new calculator for every unit tests
      */
     @Before
     public void initializeCaclulator(){
-        calculator = new ProfitCalculator();
+        _calculator = new ProfitCalculator();
     }
 
     /**
@@ -27,7 +27,7 @@ public class TestProfitCalculator{
     @Test
     public void test_getMaxProfit_with_Example(){
         int[] stockPrices = {10, 7, 5, 8, 11, 9};
-        Assert.assertEquals (6, calculator.getMaxProfit(stockPrices)); // returns 6 (buy at $5 sell at $11)
+        Assert.assertEquals (6, _calculator.getMaxProfit(stockPrices)); // returns 6 (buy at $5 sell at $11)
     }
 
     /**
@@ -36,7 +36,7 @@ public class TestProfitCalculator{
     @Test
     public void test_getMaxProfit_with_Empty_Input(){
         int[] stockPrices = {};
-        Assert.assertEquals (0, calculator.getMaxProfit(stockPrices));
+        Assert.assertEquals (0, _calculator.getMaxProfit(stockPrices));
     }
 
     /**
@@ -45,7 +45,7 @@ public class TestProfitCalculator{
     @Test
     public void test_getMaxProfit_with_Descending_Input(){
         int[] stockPrices = {5, 4, 3, 2, 1};
-        Assert.assertEquals (0, calculator.getMaxProfit(stockPrices));
+        Assert.assertEquals (0, _calculator.getMaxProfit(stockPrices));
     }
 
 
@@ -55,7 +55,7 @@ public class TestProfitCalculator{
     @Test
     public void test_getMaxProfit_with_Same_Number_Input(){
         int[] stockPrices = {1, 1, 1, 1, 1, 1};
-        Assert.assertEquals (0, calculator.getMaxProfit(stockPrices));
+        Assert.assertEquals (0, _calculator.getMaxProfit(stockPrices));
     }
 
     /**
@@ -64,7 +64,7 @@ public class TestProfitCalculator{
     @Test
     public void test_getMaxProfit_with_All_Zero_Input(){
         int[] stockPrices = {0, 0, 0, 0, 0, 0};
-        Assert.assertEquals (0, calculator.getMaxProfit(stockPrices));
+        Assert.assertEquals (0, _calculator.getMaxProfit(stockPrices));
     }
 
     /**
@@ -72,8 +72,8 @@ public class TestProfitCalculator{
      */
     @Test
     public void test_getMaxProfit_with_Multiple_Max_Profit_Operation(){
-        int[] stockPrices = {10, 7, 5, 3, 11, 9};
-        Assert.assertEquals (6, calculator.getMaxProfit(stockPrices));
+        int[] stockPrices = {10, 7, 5, 5, 11, 9};
+        Assert.assertEquals (6, _calculator.getMaxProfit(stockPrices));
     }
 
     /**
@@ -83,7 +83,7 @@ public class TestProfitCalculator{
     public void test_getMaxProfit_with_Negative_Input(){
         int[] stockPrices = {-10, 7, 5, 3, 11, 9};
         try {
-            Assert.assertEquals (6, calculator.getMaxProfit(stockPrices));
+            Assert.assertEquals (6, _calculator.getMaxProfit(stockPrices));
             fail("Should have failed: negative input");
         } catch (Exception e) {
             // Nothing here - just ignore the fact that the exception

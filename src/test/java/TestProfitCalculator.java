@@ -1,6 +1,10 @@
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.Arrays;
+import java.util.Collections;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
@@ -13,12 +17,19 @@ import static org.junit.Assert.fail;
 
 public class TestProfitCalculator{
     private ProfitCalculator _calculator;
+    private int[] _tenThousandNumberSet;
     /*
      * A new calculator for every unit tests
      */
     @Before
     public void initializeCaclulator(){
         _calculator = new ProfitCalculator();
+        int[] arr = new int[10000];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = i;
+        }
+//        Collections.shuffle(Arrays.asList(arr));
+        _tenThousandNumberSet = arr;
     }
 
     /**
@@ -91,6 +102,19 @@ public class TestProfitCalculator{
             // this case).
         }
 
+    }
+
+    /**
+     * Test that the getMaxProfit function runs within a reasonable time
+     * The input is supposed to contain the list of stock prices every minute for a full day (10-18)
+     * 8 hours = 480 minutes
+     * We tested a input size of 10000 in our test case.
+     * The program taking 0.5s to process seems reasonable.
+     */
+    @Test(timeout=500)
+    public void test_getMaxProfit_with_Large_Input(){
+        int[] stockPrices = _tenThousandNumberSet;
+        Assert.assertEquals (9998, _calculator.getMaxProfit(stockPrices));
     }
 
 }

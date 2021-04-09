@@ -16,7 +16,7 @@ public class ProfitCalculator {
         }
         List<Integer> maximumProfits = new ArrayList<Integer>();
         List<Integer> prices = Arrays.stream(stockPrices).boxed().collect(Collectors.toList());
-        int lastIndexofStockPrices = stockPrices.length;
+
         for( int i = 0; i < prices.size()-2; i++ ) {
             if (prices.get(i) < 0) {
                 throw new RuntimeException("Input should be non-negative integers");

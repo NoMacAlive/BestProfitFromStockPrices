@@ -76,5 +76,21 @@ public class TestProfitCalculator{
         Assert.assertEquals (6, calculator.getMaxProfit(stockPrices));
     }
 
+    /**
+     * Test that the getMaxProfit function with negative values
+     */
+    @Test
+    public void test_getMaxProfit_with_Negative_Input(){
+        int[] stockPrices = {-10, 7, 5, 3, 11, 9};
+        try {
+            Assert.assertEquals (6, calculator.getMaxProfit(stockPrices));
+            fail("Should have failed: negative input");
+        } catch (Exception e) {
+            // Nothing here - just ignore the fact that the exception
+            // occurred (since that's what's supposed to happen in
+            // this case).
+        }
+
+    }
 
 }
